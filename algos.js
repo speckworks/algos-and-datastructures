@@ -46,3 +46,44 @@ function duplicates(...args) {
   }
   return false
 }
+
+// check if parentheses are balanced
+let isBalanced = (input) => {
+  let brackets = "[]{}()<>"
+  let stack = []
+
+  for (let bracket of input) {
+    let bracketsIndex = brackets.indexOf(bracket)
+    // if bracket is an opening bracket
+    if (bracketsIndex % 2 === 0) {
+      // push closing bracket's index onto stack
+      stack.push(bracketsIndex + 1)
+    } else {
+      if (stack.pop() !== bracketsIndex) {
+        return false
+      }
+    }
+  }
+  return stack.length === 0
+}
+
+// determine num of operations required to make parentheses balanced
+let makeBalanced = (input) => {
+  let parenths = input.split('') // convert to arr
+  // a counter to keep track of required num of complements
+  let rComplement = 0
+  let lComplement = 0
+  for (let bracket of parenths) {
+    // if opening parenths encountered, increase right complement
+    if (bracket === '(') {
+      rComplement++
+    } else { // if closing pareths encoutered
+      if (rComplement > 0) {
+        rComplement-- // if an opening parenths already exists, decrease right complement
+      } else {
+        lComplement++ // if no opening parenths already exists, increase left complement
+      }
+    }
+  }
+  return rComplement + lComplement
+}
