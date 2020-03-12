@@ -87,3 +87,34 @@ let makeBalanced = (input) => {
   }
   return rComplement + lComplement
 }
+
+let findPrimesFaster = (target) => {
+  // edge cases
+  if (target && Number.isInteger(target) && target > 2) {
+    let record = []
+    let primes = [2]
+    let max = Math.sqrt(target)
+
+    // save truthy value to 'record' for each num between 2 & target
+    for (let num = 0; num < target; num++) {
+      record.push(1)
+    }
+
+    // sieve algorithm
+    for (let prime = 3; prime <= max; prime += 2) {
+      if (record[prime]) {
+        for (let multiple = prime*prime; multiple < target; multiple += prime*2) {
+          record[multiple] = 0
+        }
+      }
+    }
+    // if its prime, push it to prime
+    for (let sievedNum = 3; sievedNum < target; sievedNum += 2) {
+      if (record[sievedNum]) {
+        primes.push(sievedNum)
+      }
+    }
+    return primes
+  }
+  return 'Please enter an integer greater than two'
+}
