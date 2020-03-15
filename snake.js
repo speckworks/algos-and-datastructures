@@ -40,12 +40,12 @@ let checkPosition = (head) => {
   return true
 }
 
-// let makeApple = () => {
-//   let newApple = new Apple(randomX, randomy)
-//   while (!checkPosition(newApple)) {
-//     newApple = new Apple(randomX, randomY)
-//   }
-// }
+let makeApple = () => {
+  let newApple = new Apple(randomX, randomy)
+  while (!checkPosition(newApple)) {
+    newApple = new Apple(randomX, randomY)
+  }
+}
 
 let interval = () => {
   let newHead = newHead(snake.coordinates[0], direction)
