@@ -23,7 +23,7 @@ class Apple {
   }
 }
 
-let snake = new Snake(1,1)
+let snake = new Snake(5,5)
 
 // direction (x, y)
 // let apple = Apple(random x, random y) // within 0-x and 0-y
