@@ -140,3 +140,17 @@ function instagramSticker(phrase) {
   }
   return count
 }
+
+// return unique anagrams solution
+function funWithAnagrams(text) {
+  let check = {}
+  let original = []
+  for (let word of text) {
+    let sorted = word.split('').sort().join('')
+    if (!check[sorted]) {
+      check[sorted] = true
+      original.push(word)
+    }
+  }
+  return original.sort()
+}
