@@ -118,3 +118,25 @@ let findPrimesFaster = (target) => {
   }
   return 'Please enter an integer greater than two'
 }
+
+// Instagram Sticker Problem
+// a sticker has the string 'instagram'
+// given a string, how many stickers do we need to create the string
+function instagramSticker(phrase) {
+  let string = 'instagram'
+  let insta = {}
+  for (let char of string) {
+    insta[char] ? insta[char]++ : insta[char] = 1
+  }
+  let count = 0
+  let word = {}
+  let sentence = phrase.split(' ').join('')
+  for (let char of sentence) {
+    word[char] ? word[char]++ : word[char] = 1
+  }
+  for (let char in word) {
+    let amount = Math.ceil(word[char]/insta[char])
+    if (amount > count) count = amount
+  }
+  return count
+}
