@@ -118,3 +118,10 @@ let findPrimesFaster = (target) => {
   }
   return 'Please enter an integer greater than two'
 }
+
+let numOfSteps = (num) => {
+  let count = 0
+  while (num > 0) {
+    if (num % )
+  }
+}
