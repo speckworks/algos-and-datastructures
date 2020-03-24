@@ -119,9 +119,38 @@ let findPrimesFaster = (target) => {
   return 'Please enter an integer greater than two'
 }
 
-let numOfSteps = (num) => {
-  let count = 0
-  while (num > 0) {
-    if (num % )
+// Instagram Sticker Problem
+// a sticker has the string 'instagram'
+// given a string, how many stickers do we need to create the string
+function instagramSticker(phrase) {
+  let string = 'instagram'
+  let insta = {}
+  for (let char of string) {
+    insta[char] ? insta[char]++ : insta[char] = 1
   }
+  let count = 0
+  let word = {}
+  let sentence = phrase.split(' ').join('')
+  for (let char of sentence) {
+    word[char] ? word[char]++ : word[char] = 1
+  }
+  for (let char in word) {
+    let amount = Math.ceil(word[char]/insta[char])
+    if (amount > count) count = amount
+  }
+  return count
+}
+
+// return unique anagrams solution
+function funWithAnagrams(text) {
+  let check = {}
+  let original = []
+  for (let word of text) {
+    let sorted = word.split('').sort().join('')
+    if (!check[sorted]) {
+      check[sorted] = true
+      original.push(word)
+    }
+  }
+  return original.sort()
 }
