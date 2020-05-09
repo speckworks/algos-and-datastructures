@@ -1,2 +1,2 @@
 # algos-and-datastructures
-This is a repo with alogrithm solutions
+This is a repo with algorithm solutions
